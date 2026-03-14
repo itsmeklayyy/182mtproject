@@ -14,9 +14,9 @@ body {
   color: #ffffff;
 
   background:
-    url(/sidegraphic.gif) no-repeat left top fixed,
+    url(sidegraphic.gif) no-repeat left top fixed,
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(/BTS_Arirang_Tour_logo.jpg) center/cover no-repeat fixed;
+    url(BTS_Arirang_Tour_logo.jpg) center/cover no-repeat fixed;
 
   margin: 0;
   padding: 0;
@@ -93,7 +93,7 @@ a:active {
 
 /* --Header-- */
 header {
-  background-image: url(/preamble.gif);
+  background-image: url(preamble.gif);
   background-repeat: no-repeat;
   height: 455px;
   width: 552px;
