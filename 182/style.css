@@ -1,6 +1,5 @@
 /* CSS Zen Garden submission 182 - Customized ARIRANG Theme */
 /* Inspired by BTS, colors: black, white, red */
-/* All graphics placeholders remain from original, can replace with ARIRANG-themed images */
 
 /* --HTML and BODY-- */
 html {
@@ -13,15 +12,26 @@ body {
   font-size: 14px;
   color: #ffffff;
 
-  background:
-    url(sidegraphic.gif) no-repeat left top fixed,
+  background-image:
+    url(sidegraphic2.png),
     linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url(BTS_Arirang_Tour_logo.jpg) center/cover no-repeat fixed;
+    url(BTS_Arirang_Tour_logo.jpg);
 
-  margin: 0;
-  padding: 0;
+  background-repeat: repeat-y, no-repeat, no-repeat;
+  background-position:
+    left top,
+    center,
+    center;
+  background-attachment: fixed, fixed, fixed;
+  background-size:
+    180px auto,
+    cover,
+    cover;
+
   line-height: 18px;
   font-weight: normal;
+  margin: 0;
+  padding: 0;
 }
 
 /* --Typography and Links-- */
@@ -36,7 +46,7 @@ h1,
 h2,
 h3 {
   margin: 0;
-  color: #ff1a1a; /* Red headers for impact */
+  color: #ff1a1a;
 }
 
 abbr {
@@ -62,21 +72,22 @@ a:active {
 /* --Container-- */
 .page-wrapper {
   width: 560px;
-  margin-left: 100px;
-  padding-left: 5px;
-
-  border: 2px solid #ff1a1a;
+  margin-left: 200px;
   padding: 10px;
+  border: 2px solid #ff1a1a;
 }
 
-/* --Summary bar-- */
+/* --Summary bar (bar.gif replacement) -- */
 .summary {
-  padding: 0 0 0 5px;
-  margin: 0 1px 10px 0;
-  background-image: url(bar.gif);
-  background-repeat: no-repeat;
   width: 325px;
   height: 30px;
+  margin: 0 0 10px 0;
+  padding-left: 5px;
+
+  background-image: url(bar.gif); /* your bar GIF */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
 .summary p:first-child {
@@ -91,13 +102,15 @@ a:active {
   color: #ff1a1a;
 }
 
-/* --Header-- */
+/* --Header (preamble.gif replacement) -- */
 header {
-  background-image: url(preamble.gif);
+  background-image: url(preamble2.jpg);
   background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
   height: 455px;
   width: 552px;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -184,7 +197,6 @@ header {
   padding-top: 5px;
   margin-bottom: 5px;
 }
-
 .sidebar li a:link {
   color: #ff1a1a;
 }
@@ -200,50 +212,61 @@ header {
   font-weight: normal;
 }
 
-/* --Footer-- */
+/* --Footer (CSS animated minimal design) -- */
 footer {
-  background-image: url(footer.gif);
-  background-repeat: no-repeat;
-  background-position: left top;
+  width: 100%; /* full width */
   height: 100px;
-  width: 400px;
-  margin: 10px 35px 10px;
+  margin: 20px 0 10px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Animated stripes overlay */
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%; /* start off-screen */
+  width: 200%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+    red 0 20px,
+    white 20px 40px,
+    black 40px 60px
+  );
+  animation: slide 5s linear infinite;
+  opacity: 0.6; /* subtle effect */
+  z-index: 0;
+}
+
+/* Footer text on top */
+footer p,
 footer a {
-  cursor: help;
-  font:
-    0.8em "Trebuchet MS",
-    "Arial",
-    sans-serif;
-  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
   color: #ff1a1a;
   font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Arial", sans-serif;
 }
 
-footer a:hover {
-  color: #ffffff;
-  border: 0;
-  font-weight: bold;
+/* Animation keyframes */
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* --ARIRANG Style Enhancements-- */
-/* Add subtle red hover highlights for paragraphs */
 p:hover {
   color: #ff1a1a;
 }
-
-/* Add a thin red border to page wrapper for a sleek BTS feel */
-.page-wrapper {
-  border: 2px solid #ff1a1a;
-  padding: 10px;
-}
-
-/* Smooth transition for hover effects */
 a,
 p {
   transition: all 0.3s ease-in-out;
 }
-
-/* --END OF CUSTOMIZATION-- */
